@@ -1,9 +1,5 @@
-package chapter0302
+package strings
 
-import strings.joinToString
-
-
-/*
 //因为Java不支持默认值，@JvmOverloads为兼容Java，在编译时提供多个重载方法
 @JvmOverloads
 fun <T> joinToString(collection: Collection<T>, separator: String = ", ", prefix: String = "(", postfix: String =")"): String {
@@ -16,14 +12,4 @@ fun <T> joinToString(collection: Collection<T>, separator: String = ", ", prefix
 
     result.append(postfix)
     return result.toString()
-}
-*/
-
-fun main(args: Array<String>) {
-    val list = listOf(1, 2, 3)
-
-    println(joinToString(list, "; ", "[", "]"))
-    println(joinToString(list))
-    println(joinToString(list, " - "))
-    println(joinToString(list, prefix = "{", postfix = "}"))
 }
