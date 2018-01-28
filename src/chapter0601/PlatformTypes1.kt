@@ -9,4 +9,7 @@ fun yellAtSafe(person: Person) {
 fun main(args: Array<String>) {
     yellAtSafe(Person("Jason"))
     yellAtSafe(Person(null))
+
+    println("42".toInt())
+    println(42.toString())
 }
