@@ -42,6 +42,26 @@ public class MyTest {
     }
 }
 ```
+* sealed 密封类  
+密封类用于代表严格的类结构，值只能是有限集合中的某种类型，不可以是任何其它类型。这就相当于一个枚举类的扩展：枚举值集合的类型是严格限制的，但每个枚举常量只有一个实例，而密封类的子类可以有包含不同状态的多个实例。 
+声明密封类需要在 class 前加一个 sealed 修饰符。密封类可以有子类但必须全部嵌套在密封类声明内部.  
+注意密封类子类的扩展可以在任何地方，不必在密封类声明内部进行。 
+使用密封类的最主要的的好处体现在你使用 when 表达式。可以确保声明可以覆盖到所有的情形，不需要再使用 else 情形。
+```
+sealed class Expr {
+    class Const(val number: Double) : Expr() 
+    class Sum(val e1: Expr, val e2: Expr) : Expr() 
+    object NotANumber : Expr()
+}
+
+fun eval(expr: Expr): Double = when(expr) { 
+    is Const -> expr.number
+    is Sum -> eval(expr.e1) + eval(expr.e2) 
+    NotANumber -> Double.NaN
+    // the `else` clause is not required because we've covered all the cases
+}
+```
+
 ## Chapter 7.3
 * 定义set，get方法，以集合下标方式访问元素  
  in运算符对应的函数是contains, 用...until.. 构建一个开区间，用in运算符检查对象是否属于这个区间。
