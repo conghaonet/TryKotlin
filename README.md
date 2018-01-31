@@ -29,7 +29,7 @@ fun testWith() {
 * companion object 伴随对象  
 在 kotlin 中没有静态方法。在大多数情形下，我们建议只用包级别的函数。如果你要写一个没有实例类就可以调用的方法，但需要访问到类内部(比如说一个工厂方法)，你可以把它写成它所在类的一个成员。你可以在你的类中声明一个伴随对象，把它当做静态方法调用，只需要它的类名做一个识别就好了
 * lateinit 延迟初始化属性
-···
+```
 public class MyTest {
     lateinit var subject: TestSubject
 
@@ -41,7 +41,7 @@ public class MyTest {
         subject.method() 
     }
 }
-···
+```
 ## Chapter 7.3
 * 定义set，get方法，以集合下标方式访问元素  
  in运算符对应的函数是contains, 用...until.. 构建一个开区间，用in运算符检查对象是否属于这个区间。
